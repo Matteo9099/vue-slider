@@ -31,14 +31,15 @@
         <div class="thumbs">
 
             <!-- al click esegui le seguenti funzioni -->
-            <div class="prev" @click="prev"></div>
-            <div class="next" @click="next"></div>
+            <div class="prev" @click="getPrev"></div>
+            <div class="next" @click="getNext"></div>
 
             <!-- Stampo a video le immagini dell'array ed indico quando una immagine si sposta su active -->
             <div class="thumb" :class="indice == active?'active':' ' " v-for="(item, indice) in items">
                 <img :src="item.url" alt="">
             </div>
         </div>
+
     </div>
 
 

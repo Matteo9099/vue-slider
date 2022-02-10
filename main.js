@@ -5,8 +5,7 @@ const vue = new Vue({
 
         active: 0,
         // Mi dichiaro un array con le varie proprietà
-        items: [
-            {
+        items: [{
                 url: 'img/01.jpg',
                 title: 'Svezia',
                 text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.'
@@ -34,21 +33,22 @@ const vue = new Vue({
         ],
     },
     methods: {
-        prev() {
-
+        getPrev() {
             if (this.active <= 0) {
                 this.active = this.items.length - 1;
             } else {
                 this.active--;
             }
         },
-        next() {
-            if (this.active >= this.items.length -1) {
+        getNext() {
+            if (this.active >= this.items.length - 1) {
                 this.active = 0;
             } else {
                 this.active++;
             }
-        }
+        },
+       
     }
 
 });
+
