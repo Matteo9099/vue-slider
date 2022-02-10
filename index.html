@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- creo una classe container che racchiuda tutto il progetto  -->
+    <div class="container" id="app">
+
+        <!-- creo una classe items per mettere all'interno la parte sx con img, titolo e testo -->
+        <div class="items">
+            <div class="item active">
+                <!-- Richiamo le immagini attraverso Vue tramite v-bind -->
+                <img :src="items[active].url" alt="">
+                <div class="text">
+                    <!-- Stampo a video il titolo e testo dell'immagine in questione -->
+                    <h3>{{items[active].title}}</h3>
+                    <p>{{items[active].text}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creo un div che contiene le immagini a cascata sul lato destro -->
+        <div class="thumbs">
+
+            <!-- al click esegui le seguenti funzioni -->
+            <div class="prev" @click="prev"></div>
+            <div class="next" @click="next"></div>
+
+            <!-- Stampo a video le immagini dell'array ed indico quando una immagine si sposta su active -->
+            <div class="thumb" :class="indice == active?'active':' ' " v-for="(item, indice) in items">
+                <img :src="item.url" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
