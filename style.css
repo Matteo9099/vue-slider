@@ -29,6 +29,8 @@
     object-fit: cover;
 }
 
+
+
 .item.active{
     display: block;
 }
@@ -107,3 +109,4 @@
     left: 50%;
     transform: translate(-50%) rotate(135deg);
 }
+

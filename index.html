@@ -15,7 +15,7 @@
     <div class="container" id="app">
 
         <!-- creo una classe items per mettere all'interno la parte sx con img, titolo e testo -->
-        <div class="items">
+        <div class="items" @mouseleave="startAutoPlay" @mouseover="stopAutoPlay">
             <div class="item active">
                 <!-- Richiamo le immagini attraverso Vue tramite v-bind -->
                 <img :src="items[active].url" alt="">
@@ -28,17 +28,20 @@
         </div>
 
         <!-- Creo un div che contiene le immagini a cascata sul lato destro -->
-        <div class="thumbs">
+        <div class="thumbs" @mouseleave="startAutoPlay" @mouseover="stopAutoPlay">
 
             <!-- al click esegui le seguenti funzioni -->
             <div class="prev" @click="getPrev"></div>
             <div class="next" @click="getNext"></div>
 
             <!-- Stampo a video le immagini dell'array ed indico quando una immagine si sposta su active -->
-            <div class="thumb" :class="indice == active?'active':' ' " v-for="(item, indice) in items">
+            <div class="thumb" :class="index == active?'active':' ' "
+             v-for="(item, index) in items" @click="goToSlide(index)">
                 <img :src="item.url" alt="">
             </div>
         </div>
+
+
 
     </div>
 
